@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-cream text-ink font-body;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .display {
+  @apply font-display;
+}
+
+/* Signature element: torn-corner discount price tag, styled like a
+   physical shelf-edge sticker used across the whole store. */
+.price-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: #D93D3D;
+  color: #FAF6EE;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 5px 8px 5px 10px;
+  border-radius: 2px 8px 8px 2px;
+  box-shadow: 0 2px 6px rgba(217,61,61,0.35);
+}
+.price-tag::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #FAF6EE;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(217,61,61,0.35);
+}
+
+.dotted-cut {
+  border-top: 2px dashed rgba(32,38,31,0.18);
+}
+
+.container-xl {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply bg-brand hover:bg-brand-dark text-white font-semibold px-5 py-2.5 rounded-lg transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-brand-50 text-brand border border-brand font-semibold px-5 py-2.5 rounded-lg transition-colors duration-150;
+}
+
+.btn-accent {
+  @apply bg-marigold hover:bg-marigold-dark text-ink font-bold px-5 py-2.5 rounded-lg transition-colors duration-150;
+}
+
+.input-field {
+  @apply w-full border border-black/10 bg-white rounded-lg px-3.5 py-2.5 outline-none focus:ring-2 focus:ring-brand/40 focus:border-brand transition;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-card border border-black/5;
+}
+
+::selection {
+  background: #F2B705;
+  color: #20261F;
+}
+
+/* Visible keyboard focus for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #1B6B4A;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
